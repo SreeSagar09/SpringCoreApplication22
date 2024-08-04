@@ -1,0 +1,44 @@
+A Program to demonstrate the use of @Bean annotation:
+Programs:
+* Address.java
+* Order.java
+* Product.java
+* AppConfig.java
+* Test.java
+Note:
+* @Bean annotated method produces a bean to be managed by the Spring container.
+* @Bean annotation is intentionally similar to the <bean/> element in the Spring XML schema.
+* @Bean annotation is used at method and annotation level.
+* This annotation accept below attributes:
+1. value attribute is alias of name attribute, it will accepts the array of bean names.
+2. name attribute is used modified the default name of the bean, if not mention the name then default bean name id method name and it will accepts the array of string. 
+3. autowire attribute is used to configure dependencies to be injected via convention-based autowiring by name or type, it will accept Autowire enum type.
+4. autowireCandidate attribute is used to configure is this bean a candidate for getting autowired into some other bean.
+5. initMethod attribute is used to configure a method to execute at bean instantiation time, it is similar to @PreConstruct annotation.
+6. destroyMethod attribute is used to configure a method to execute at bean is removed from container, it is similar to @PostDestroy annotation.
+* The default name of the is method.
+* If we configure bean name with the name attribute by passing array of names then we can access bean with any one of the bean name.
+Output:
+Order created with the item: Iphone-15Pro
+--------- Beans Names ----------
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+org.springframework.context.annotation.internalCommonAnnotationProcessor
+org.springframework.context.event.internalEventListenerProcessor
+org.springframework.context.event.internalEventListenerFactory
+appConfig
+iphone
+SAMSUNG
+order
+office
+---------- Order ----------
+Order [product=Product [productName=Iphone-15Pro, quantity=12, price=75000.0, vendor=Apple], orderQuantity=2, totalAmount=150000.0, shipTo=Address [houseNo=2026-11, area=Hi-tech city, city=Hyderabad, state=null, country=India, zipcode=506122, phoneNo=9999900000]]
+-------- Product ----------
+Product [productName=Iphone-15Pro, quantity=12, price=75000.0, vendor=Apple]
+----------- Address ---------
+Address [houseNo=2026-11, area=Hi-tech city, city=Hyderabad, state=null, country=India, zipcode=506122, phoneNo=9999900000]
+Order delivered to: 2026-11, Hi-tech city, Hyderabad
+---- Accessing Samsung Product with 'SAMSUNG' Bean Name ----
+Product [productName=Samsung-Galaxy, quantity=6, price=55000.0, vendor=Samsung]
+---- Accessing Samsung Product with 'sAMSUNg' Bean Name ----
+Product [productName=Samsung-Galaxy, quantity=6, price=55000.0, vendor=Samsung]
